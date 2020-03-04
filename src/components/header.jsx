@@ -3,26 +3,32 @@ import { connect } from "react-redux";
 import { increment, decrement } from "../actions";
 
 class Header extends Component {
-  state = {};
-  //WARNING! To be deprecated in React v17. Use componentDidMount instead.
-  componentWillMount() {
-    console.log('users', this.props.users, )
-  }
+
   
   render() {
-    // console.log('users', this.props.users, )
+    console.log('users', this.props.users, )
+    let users;
+    if(this.props.users !== null) {
+      users = this.props.users.map(x =>(
+      <li>{x.email}</li>
+      ))
+    }
     return (
       <>
-        <h1>Hello {this.props.counter}</h1>
-        <button onClick={() => this.props.increment()}>+</button>
-        <button onClick={() => this.props.decrement()}>-</button>
+        <h1>Header</h1>
+
+        <ul>
+          {users}
+        </ul>
+        <h1>Counter {this.props.counter}</h1>
+        <button onClick={() => this.props.increment(1)}>+</button>
+        <button onClick={() => this.props.decrement(1)}>-</button>
       </>
     );
   }
 }
 
 const mapStateToProps = state => {
-  console.log(state)
   return { counter: state.counter, users : state.users.state };
 };
 const mapDispatchToProps = { increment, decrement};

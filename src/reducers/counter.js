@@ -1,11 +1,11 @@
-const counter = (state = 0, action) => {
+const counter = (counter = 0, action) => {
   switch (action.type) {
     case "increment":
-      return state + 1;
+      return counter + action.payload;
     case "decrement":
-      return state - 1;
+      return counter - action.payload;
     default:
-      return state;
+      return counter;
   }
 };
 

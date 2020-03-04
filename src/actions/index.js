@@ -1,11 +1,13 @@
-export const increment = () => {
+export const increment = (em) => {
   return {
-    type: "increment"
+    type: "increment",
+    payload : em
   };
 };
-export const decrement = () => {
+export const decrement = (em) => {
   return {
-    type: "decrement"
+    type: "decrement",
+    payload : em
   };
 };
 export const getUser = list => {

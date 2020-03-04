@@ -1,13 +1,12 @@
-const users = (state=[], action) => {
+const initState = {
+  state: []
+}
+const users = (state= initState, action) => {
   switch (action.type) {
     case "fetched":
-      return {
-        state: action.payload
-      };
+      return {...state, state: action.payload};
     default:
-      return {
-        state
-      };
+      return state;
   }
 };
 
